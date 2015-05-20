@@ -6,15 +6,11 @@ html, body {
 }
 
 #modal-content {
-	width: 448px;
-	position: fixed;
+	width: auto;
 	z-index: 2;
 	display: none;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-left: -224px;
-	margin-top: -395px;
+	position: fixed;
+	left: 40%;
 }
 
 #modal-content .close {
@@ -33,15 +29,24 @@ html, body {
    color: #f00;
 }
 
+/*media all*/
 #modal-overlay {
-	z-index: 1;
-	display: none;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 120%;
-	background: #000 url(../images/Cover01.bmp) no-repeat top center;
+    z-index: 1;
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 30%;
+    width: 600px;
+    height: 600px;
+    background: #000 url(../images/Cover01.bmp) no-repeat top center;
+
+    -webkit-filter:Chroma(color=#000000) Glow(color=gold,strength=3) DropShadow(color=#0000F0,offX=-3,offY=-3,positive=true) Blur(Enabled=false,makeShadow=true,pixelRadius=1.0) Wave(add=false,freq=0,strength=5,lightStrength=8,phase=100);
+    -moz-filter:Chroma(color=#000000) Glow(color=gold,strength=3) DropShadow(color=#0000F0,offX=-3,offY=-3,positive=true) Blur(Enabled=false,makeShadow=true,pixelRadius=1.0) Wave(add=false,freq=0,strength=5,lightStrength=8,phase=100);
+    -o-filter:Chroma(color=#000000) Glow(color=gold,strength=3) DropShadow(color=#0000F0,offX=-3,offY=-3,positive=true) Blur(Enabled=false,makeShadow=true,pixelRadius=1.0) Wave(add=false,freq=0,strength=5,lightStrength=8,phase=100);
+    filter:Chroma(color=#000000) Glow(color=gold,strength=3) DropShadow(color=#0000F0,offX=-3,offY=-3,positive=true) Blur(Enabled=false,makeShadow=true,pixelRadius=1.0) Wave(add=false,freq=0,strength=5,lightStrength=8,phase=100);
+
+    -ms-background-size: 600px 600px;
+    background-size: 600px 600px;
 }
 
 #wrapper {
@@ -69,10 +74,10 @@ html, body {
 
 .message {
 	position: absolute;
-	top: 25px;
+	top: 30px;
 	left: 30px;
-	width: 178px;
-	height: 178px;
+	width: auto;
+	height: auto;
 }
 
 .logo {
