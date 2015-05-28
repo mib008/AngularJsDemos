@@ -37,9 +37,26 @@
             padding: 0;
         }
 
-        div#menu ul li {
+            div#menu ul li {
+                display: inline;
+                margin: 5px;
+            }
+
+        div#logger-div {
+            overflow: auto;
+        }
+
+        div#logger-label {
+            width: auto;
             display: inline;
-            margin: 5px;
+            float: left;
+            margin: 0px 5px 0px 0px;
+        }
+
+        div#logger-textarea {
+            display: inline;
+            float: left;
+            width: auto;
         }
 
         header, footer, section, article {
@@ -84,7 +101,18 @@
         <h1>What Does WWF Do?</h1>
         <p>WWF's mission: Version002</p>
         <br />
-        Logger: {{loggerString}}
+        <div id="logger-div">
+            <div id="logger-label">
+                <p>Logger:</p>
+            </div>
+
+            <div id="logger-textarea">
+                <p>
+                    WWF's mission is to stop the degradation of our planet's natural environment,
+                    and build a future in which humans live in harmony with nature.
+                </p>
+            </div>
+        </div>
     </header>
 
     <nav>
@@ -140,25 +168,33 @@
         <p>Posted by: Hege Refsnes</p>
         <p>
             Contact information: <a href="mailto:someone@example.com">
-                                     someone@example.com
-                                 </a>.
+                someone@example.com
+            </a>.
         </p>
         <input id="input-loggerString" ng-model="loggerString" type="text" style="display: block;" />
     </footer>
 
     <script type="text/javascript">
-        
+
         function B05Control($scope) {
             $scope.loggerString = "String.Empty";
         }
 
         $("#draggable-article").mousedown(
-            function() {
-                // $("#input-loggerString").innerText += "\r\n" + "Call #draggable-article mouseDown";
-                var element = 
-
-                $("#input-loggerString").textContent = "Call #draggable-article mouseDown";
+            function () {
+                appendLogger("Call #draggable-article mouseDown");
             });
+
+        function appendLogger(message) {
+            var loggerTag = $("#logger-textarea");
+            if (loggerTag && loggerTag[0]) {
+                if (loggerTag[0].childElementCount >= 5) {
+                    loggerTag[0].children[0].parentNode.removeChild(loggerTag[0].children[0]);
+                }
+
+                loggerTag.append("<p>" + message + "\t" + new Date() + "</p>");
+            }
+        }
 
     </script>
 
