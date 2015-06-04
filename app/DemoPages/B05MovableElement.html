@@ -7,10 +7,22 @@
             font-size: 0.8em;
         }
 
-        article {
+        .draggable-article {
             width: 250px;
             float: left;
             margin: 10px;
+            padding: 0px;
+        }
+
+        .draggable-article-header {
+            background: black;
+            color: white;
+            margin: 0px;
+            padding: 5px;
+        }
+
+        .draggable-article-content {
+            padding: 5px;
         }
 
         div#header, div#footer, div#content, div#post {
@@ -87,6 +99,9 @@
                 display: inline;
                 margin: 5px;
             }
+
+        .draggable-article {
+        }
     </style>
 
 
@@ -123,28 +138,25 @@
     </nav>
 
     <section>
-        <article id="draggable-article">
-            <p>
-                Grid 0
-                <br />
+        <article class="draggable-article">
+            <p class="draggable-article-header">Grid 0</p>
+            <p class="draggable-article-content">
                 WWF's mission is to stop the degradation of our planet's natural environment,
                 and build a future in which humans live in harmony with nature.
             </p>
         </article>
 
-        <article id="draggable-article">
-            <p>
-                Grid 1
-                <br />
+        <article class="draggable-article">
+            <p class="draggable-article-header">Grid 1</p>
+            <p class="draggable-article-content">
                 WWF's mission is to stop the degradation of our planet's natural environment,
                 and build a future in which humans live in harmony with nature.
             </p>
         </article>
 
-        <article id="draggable-article">
-            <p>
-                Grid 2
-                <br />
+        <article class="draggable-article">
+            <p class="draggable-article-header">Grid 1</p>
+            <p class="draggable-article-content">
                 WWF's mission is to stop the degradation of our planet's natural environment,
                 and build a future in which humans live in harmony with nature.
             </p>
@@ -176,24 +188,72 @@
 
     <script type="text/javascript">
 
+        $(".draggable-article-header").each(
+            function() {
+                $(this).attr('draggable', 'true');
+
+                $(this).on('mousedown',
+                    function () {
+                        appendLogger("Call .draggable-article-header mousedown.");
+                    }
+                );
+            }
+        );
+
+        $(".draggable-article").each(
+            function () {
+                //// mousedown Event
+                //$(this).mousedown(
+                //    function () {
+                //        var message;
+
+                //        $(".draggable-article").each(
+                //            function () {
+                //                if (message) {
+                //                    message = message + "<br/>" +
+                //                    "--- left:" + this.offsetLeft +
+                //                    " top:" + this.offsetTop +
+                //                    " width:" + this.offsetWidth +
+                //                    " height:" + this.offsetHeight;
+                //                } else {
+                //                    message = "<br/>--- left:" + this.offsetLeft +
+                //                    " top:" + this.offsetTop +
+                //                    " width:" + this.offsetWidth +
+                //                    " height:" + this.offsetHeight;
+                //                }
+                //            }
+                //        );
+
+
+
+                //        // appendLogger("Call .draggable-article mouseDown " + message);
+                //    }
+                //);
+
+                // ondragstart Event
+                $(this).on('dragstart', function (evt) {
+                    appendLogger("Call .draggable-article dragstart.");
+                });
+
+
+            }
+        );
+
         function B05Control($scope) {
             $scope.loggerString = "String.Empty";
         }
 
-        $("#draggable-article").mousedown(
-            function () {
-                appendLogger("Call #draggable-article mouseDown");
-            });
-
         function appendLogger(message) {
-            var loggerTag = $("#logger-textarea");
-            if (loggerTag && loggerTag[0]) {
-                if (loggerTag[0].childElementCount >= 5) {
-                    loggerTag[0].children[0].parentNode.removeChild(loggerTag[0].children[0]);
-                }
+            //var loggerTag = $("#logger-textarea");
+            //if (loggerTag && loggerTag[0]) {
+            //    if (loggerTag[0].childElementCount >= 5) {
+            //        loggerTag[0].children[0].parentNode.removeChild(loggerTag[0].children[0]);
+            //    }
 
-                loggerTag.append("<p>" + message + "\t" + new Date() + "</p>");
-            }
+            //    loggerTag.append("<p>" + message + "\t" + new Date() + "</p>");
+            //}
+
+            console.log(message + "\t" + new Date());
         }
 
     </script>
