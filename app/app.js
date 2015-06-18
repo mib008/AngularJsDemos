@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
@@ -7,6 +7,10 @@ angular.module('myApp', [
   'myApp.view2',
   'myApp.version'
 ]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+config(['$routeProvider', '$locationProvider', '$sceProvider', 'tplProvider', function ($routeProvider, $locationProvider, $sceProvider, tplProvider) {
+    $routeProvider.when('/customerImage', { templateUrl: 'welcome.html' })
+        .otherwise({ redirectTo: 'index.html' });
+
+
+    $locationProvider.html5Mode(true);
 }]);
