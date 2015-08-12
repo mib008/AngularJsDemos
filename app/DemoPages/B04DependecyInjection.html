@@ -112,15 +112,22 @@
         <title>B04DependecyInjection</title>
     </head>
 <body>
-    <section ng-controller="PhoneListCtrl">
-        <article ng-repeat="phone in phones" class="draggable-article">
-            <p class="draggable-article-header">{{phone.name}}</p>
-            <p class="draggable-article-content">{{phone.snippet}}
-            </p>
-        </article>
+<!--<section ng-controller="PhoneListCtrl">
+    <article ng-repeat="phone in phones" class="draggable-article">
+        <p class="draggable-article-header">{{phone.name}}</p>
+        <p class="draggable-article-content">{{phone.snippet}}
+        </p>
+    </article>
 
-        <p style="clear: both;">My family and I visited The Epcot center this summer.</p>
+    <p style="clear: both;">My family and I visited The Epcot center this summer.</p>
+</section>-->
 
-    </section>
+<section ng-controller="GpuListCtrl">
+    <article ng-repeat="card in items" class="draggable-article">
+        <!-- No whitespace in property name -->
+        <p class="draggable-article-header">{{card.ProductName}}</p>
+        <p class="draggable-article-content">{{card.GPUChip}}</p>
+    </article>
+</section>
 </body>
 </html>
