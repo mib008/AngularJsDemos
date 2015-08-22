@@ -28,4 +28,10 @@ function GpuListCtrl($scope, $http) {
         }];
 
     $scope.items = data;
+
+    $scope.ListChipsFunc = function () {
+        console.log("ListChipFunc handled.");
+
+        console.log("Chips: " + JSON.stringify($scope.items));
+    };
 }
