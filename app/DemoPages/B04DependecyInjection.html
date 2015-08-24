@@ -123,7 +123,7 @@
 </section>-->
 
 <section ng-controller="GpuListCtrl">
-    <article ng-repeat="card in items" class="draggable-article">
+    <article ng-repeat="card in items" class="draggable-article" ng-click="ListChipsFunc()">
         <!-- No whitespace in property name -->
         <p class="draggable-article-header">{{card.ProductName}}</p>
         <p class="draggable-article-content">{{card.GPUChip}}</p>
