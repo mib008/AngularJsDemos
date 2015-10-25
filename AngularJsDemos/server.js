@@ -5,8 +5,6 @@ var port = process.env.port || 1337;
 var child_process = require("child_process"),
     path = require("path");
 
-var spawn = child_process.spawn;
-
 var basePath = __dirname;
 
 var cmd = path.join(basePath, "./node_modules/.bin/http-server");
